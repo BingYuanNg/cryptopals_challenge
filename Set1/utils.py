@@ -1,11 +1,12 @@
 import base64
 import binascii
+from itertools import cycle
 
 def xor(a,b):
 	return a^b
 
 def xor_bytes(a,b):
-	return [xor(x,y) for (x,y) in list(zip(a,b)) ]
+	return [xor(x,y) for (x,y) in list(zip(a,cycle(b))) ]
 
 def hex_to_bytes(input):
 	return bytearray.fromhex(input)
